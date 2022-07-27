@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: car_detail-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: car_detail
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: manufacturer_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_detail_car_manufacturer
+                    deleteCascade: true
+                    references: car_manufacturer(id)
+              - column:
+                  name: model
+                  type: varchar(50)
+              - column:
+                  name: year
+                  type: year
+              - column:
+                  name: kilometer_done
+                  type: float
+              - column:
+                  name: fuel_type_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_detail_car_fuel_type
+                    deleteCascade: true
+                    references: car_fuel_type(id)
+              - column:
+                  name: body_type_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_detail_car_body_type
+                    deleteCascade: true
+                    references: car_body_type(id)
+              - column:
+                  name: owners
+                  type: varchar(50)
+              - column:
+                  name: transmission_type_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_detail_car_transmission_type
+                    deleteCascade: true
+                    references: car_transmission_type(id)
+              - column:
+                  name: location_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_detail_car_location
+                    deleteCascade: true
+                    references: car_location(id)
+              - column:
+                  name: price
+                  type: decimal(19,2)
+

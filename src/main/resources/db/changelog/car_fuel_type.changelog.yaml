@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: car_fuel_type-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: car_fuel_type
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValueComputed: (UUID())
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: fuel_type
+                  type: varchar(10)
+  - changeSet:
+      id: car_fuel_type-loadTable
+      author: rohanpanwar
+      changes:
+        - loadData:
+            tableName: car_fuel_type
+            file: seeds/car_fuel_type.csv
+            relativeToChangelogFile:  true
+            separator: ;
+            columns:
+              name: fuel_type
+              header: fuel_type
+              type: STRING

@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: car_body_type-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: car_body_type
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValueComputed: (UUID())
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: body_type
+                  type: varchar(50)
+  - changeSet:
+      id: car_body_type-loadTable
+      author: rohanpanwar
+      changes:
+        - loadData:
+            tableName: car_body_type
+            file: seeds/car_body_type.csv
+            relativeToChangelogFile:  true
+            separator: ;
+            columns:
+              - column:
+                  name: body_type
+                  header: body_type
+                  type: STRING

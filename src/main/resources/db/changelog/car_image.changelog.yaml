@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: car_image-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: car_image
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: car_detail_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_car_image_car_detail
+                    deleteCascade: true
+                    references: car_detail(id)
+              - column:
+                  name: image_url
+                  type: varchar(255)
+

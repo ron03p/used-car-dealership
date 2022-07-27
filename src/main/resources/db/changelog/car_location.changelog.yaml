@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: car_location-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: car_location
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValueComputed: (UUID())
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: location_code
+                  type: varchar(10)
+              - column:
+                  name: location
+                  type: varchar(50)
+  - changeSet:
+      id: car_location-loadTable
+      author: rohanpanwar
+      changes:
+        - loadData:
+            tableName: car_location
+            file: seeds/car_location.csv
+            relativeToChangelogFile:  true
+            separator: ;
+            columns:
+              - column:
+                  name: location_code
+                  header: location_code
+                  type: STRING
+              - column:
+                  name: location
+                  header: location
+                  type: STRING

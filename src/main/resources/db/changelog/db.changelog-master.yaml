@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: car_manufacturer.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_body_type.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_fuel_type.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_location.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_transmission_type.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_detail.changelog.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: car_image.changelog.yaml
