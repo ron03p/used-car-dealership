@@ -29,3 +29,5 @@ databaseChangeLog:
               name: fuel_type
               header: fuel_type
               type: STRING
+
+

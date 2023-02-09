@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/used-car-dealership
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  redis:
+    host: localhost
+    port: 6380
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type: trace
+      springframework:
+        cache: trace
+
